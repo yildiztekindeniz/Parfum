@@ -1,11 +1,8 @@
 package deniz.parfum.service;
-
-
 import deniz.parfum.entity.Customer;
 import deniz.parfum.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +17,6 @@ public class CustomerServiceImpl implements CustomerService {
 
         this.customerRepository=customerRepository;
     }
-
 
     @Override
     public List<Customer> findAll() {
@@ -46,7 +42,29 @@ public class CustomerServiceImpl implements CustomerService {
             throw new RuntimeException("Customer id not found " +id);
 
         }
+        return customer;
+    }
 
+    @Override
+    public void deleteById(String id) {
+
+        Optional<Customer> result=customerRepository.findById(id);
+        Customer customer =null;
+
+        if(result.isPresent()){
+            customer=result.get();
+            customerRepository.deleteById(id);
+        }
+        else{
+            throw new RuntimeException("Customer id not found");
+        }
+
+    }
+
+    @Override
+    public Customer findByName(String name) {
+
+        Customer customer =customerRepository.findByName(name);
         return customer;
 
     }

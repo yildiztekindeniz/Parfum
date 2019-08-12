@@ -8,5 +8,6 @@ import java.util.Optional;
 public interface ParfumRepository extends MongoRepository<Parfum,String> {
 
      Optional<Parfum> findById(String name);
+     Parfum findByParfumName(String parfumName);
 
 }

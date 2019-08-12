@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface EssenceService {
 
-    public List<Essence> findAll();
-    public void save(Essence essence);
-    public Essence findById(String id);
-
+     List<Essence> findAll();
+     void save(Essence essence);
+     Essence findById(String id);
+     Essence findByEssenceName(String essenceName);
 }

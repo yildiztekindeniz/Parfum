@@ -44,4 +44,12 @@ public class ParfumServiceImpl implements ParfumService{
         return parfum;
 
     }
+
+    @Override
+    public Parfum findByParfumName(String parfumName) {
+
+        Parfum theParfum = parfumRepository.findByParfumName(parfumName);
+        return theParfum;
+
+    }
 }

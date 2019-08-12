@@ -36,13 +36,16 @@ public class ParfumRestController {
         parfumService.save(parfum);
     }
 
-    @GetMapping("/parfums/parfumId")
-    public Parfum getByParfumName(@PathVariable String parfumId){
-        Parfum parfum=parfumService.findById(parfumId);
+    @GetMapping("/parfums/{parfumName}")
+    public Parfum getParfum(@PathVariable("parfumName") String parfumName){
+        Parfum parfum = parfumService.findByParfumName(parfumName);
 
         return parfum;
-
     }
+
+
+
+
 
 
 }

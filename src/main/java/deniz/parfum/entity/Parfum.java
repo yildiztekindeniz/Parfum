@@ -1,5 +1,7 @@
 package deniz.parfum.entity;
 
+
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -9,6 +11,7 @@ import java.util.List;
 @Document("parfums")
 public class Parfum {
 
+    @Id
     private String id;
 
     @Field("parfum_name")
@@ -35,6 +38,7 @@ public class Parfum {
         this.concentration=concentration;
     }
 */
+
     public Parfum(String parfumName, String brand, String parfumeur, List<Essence> essences) {
         this.parfumName = parfumName;
         this.brand = brand;
@@ -72,5 +76,13 @@ public class Parfum {
 
     public void setEssences(List<Essence> essences) {
         this.essences = essences;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface EssenceRepository extends MongoRepository<Essence,String> {
     Optional<Essence> findById(String id);
+    Essence findByEssenceName(String essenceName);
 }

@@ -20,6 +20,15 @@ public class CustomerRestController {
 
     }
 
+
+    @GetMapping("/customers/{name}")
+    public Customer getCustomerByName(@PathVariable("name") String name){
+
+        Customer customer=customerService.findByName(name);
+        return customer;
+    }
+
+
     @GetMapping("/customers")
     public List<Customer> getCustomers(){
 

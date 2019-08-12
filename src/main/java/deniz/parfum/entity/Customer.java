@@ -1,5 +1,6 @@
 package deniz.parfum.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,8 +16,10 @@ public class Customer {
 
     private String mail;
 
-    public Customer(String name,String surname,String mail){
+    public Customer(){
 
+    }
+    public Customer(String name,String surname,String mail){
         this.name=name;
         this.surname=surname;
         this.mail=mail;
@@ -44,6 +47,14 @@ public class Customer {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }

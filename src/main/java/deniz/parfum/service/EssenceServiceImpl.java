@@ -1,6 +1,5 @@
 package deniz.parfum.service;
 
-
 import deniz.parfum.entity.Essence;
 import deniz.parfum.repository.EssenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +41,13 @@ public class EssenceServiceImpl implements EssenceService {
         else{
             throw new RuntimeException("Essence id not found" + id);
         }
+
+        return essence;
+    }
+
+    @Override
+    public Essence findByEssenceName(String essenceName) {
+        Essence essence = essenceRepository.findByEssenceName(essenceName);
 
         return essence;
     }

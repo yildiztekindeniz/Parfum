@@ -1,7 +1,6 @@
 package deniz.parfum.rest;
 
 import deniz.parfum.entity.Essence;
-import deniz.parfum.entity.Parfum;
 import deniz.parfum.service.EssenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,10 +26,7 @@ public class EssenceRestController {
 
     @PostMapping("/essences")
     public void insert(@RequestBody Essence essence){
-
         essenceService.save(essence);
-
-
     }
 
     @PutMapping("/essences")
@@ -38,12 +34,13 @@ public class EssenceRestController {
         essenceService.save(essence);
     }
 
-    @GetMapping("/essences/{id}")
-    public Essence essence(@RequestBody String id){
 
-        Essence essence=essenceService.findById(id);
+
+    @GetMapping("/essences/{essenceName}")
+    public Essence getEssence(@PathVariable("essenceName") String essenceName){
+
+        Essence essence=essenceService.findByEssenceName(essenceName);
         return essence;
-
     }
 
 
